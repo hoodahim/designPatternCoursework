@@ -22,4 +22,9 @@ public class WildernessMap implements Map{
     public char display() {
         return createTile().getCharacter();
     }
+
+    @Override
+    public String mapTitle() {
+        return "WildernessMap";
+    }
 }

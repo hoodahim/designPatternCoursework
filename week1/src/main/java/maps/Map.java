@@ -6,4 +6,6 @@ public interface Map {
     public Tile createTile();
 
     public char display();
+
+    public String mapTitle();
 }
