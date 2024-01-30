@@ -1,6 +1,10 @@
 public class TextFieldB extends TextField{
+    public TextFieldB(String text) {
+        super(text);
+    }
+
     @Override
     public void display() {
-        System.out.println("Text Field B");
+        System.out.println("Text Field B " + text);
     }
 }

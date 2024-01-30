@@ -1,16 +1,9 @@
 public abstract class UIFactory {
 
-    public Button createButton(String text){
-        return new Button(){};
-    };
 
-    public TextField createTextField(String text){
-        return new TextField() {
-        };
-    }
+    public abstract Button createButton(String text);
 
-    public Checkbox createCheckbox(String text){
-        return new Checkbox() {
-        };
-    }
+    public abstract TextField createTextField(String text);
+
+    public abstract Checkbox createCheckbox(String text);
 }
