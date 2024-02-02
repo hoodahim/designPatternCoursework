@@ -13,6 +13,7 @@ public class Main {
         button.setText("Click again!");
 
         button.display();
+        checkbox.display();
 
     }
 }
