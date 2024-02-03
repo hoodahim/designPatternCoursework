@@ -24,6 +24,7 @@ public class Organization {
 
         organization.print();
 
+        organization.printXML();
 
     }
 

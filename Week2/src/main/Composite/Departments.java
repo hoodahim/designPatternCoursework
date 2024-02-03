@@ -43,5 +43,14 @@ public class Departments extends Units {
         }
     }
 
+    @Override
+    public void printXML() {
+        System.out.println("<Department><Name>" + name + "</Name>");
+        for(Units unit:structure){
+            unit.printXML();
+        }
+        System.out.println("</Department>");
+    }
+
 
 }

@@ -27,4 +27,8 @@ public class Employees extends Units{
     public void print(){
         System.out.println("Employee name: " + name + ", Salary: " + salary);
     }
+
+    public void printXML() {
+        System.out.println("<Employee><Name>" + name + "</Name><Salary>" + salary + "</Salary></Employee>");
+    }
 }

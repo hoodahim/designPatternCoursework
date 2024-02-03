@@ -8,6 +8,6 @@ public abstract class Units {
 
     public abstract void print();
 
-
+    public abstract void printXML();
 
 }
