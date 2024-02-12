@@ -1,7 +1,13 @@
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 public class FilePrinter extends PrinterDecorator{
 
@@ -15,7 +21,7 @@ public class FilePrinter extends PrinterDecorator{
     }
 
     @Override
-    public void print(String message) throws IOException {
+    public void print(String message) throws IOException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         printer.print(message);
         try {
             writer = new BufferedWriter(new FileWriter(fileName));
