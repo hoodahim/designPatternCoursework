@@ -6,7 +6,6 @@ public class Logger {
 
     private String fileName;
     private static Logger instance;
-
     private BufferedWriter writer;
 
     private Logger(){
