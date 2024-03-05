@@ -8,15 +8,10 @@ public class NumberGame extends Game{
     final int  WIN_SCORE = 10;
     List<Player> numPlayers=new ArrayList<>();
     Random random = new Random();
-/*    int numberOfPlayers;
-
-    public NumberGame(int numberOfPlayers){
-        this.numberOfPlayers = numberOfPlayers;
-    }*/
-
+    int answer = 101;
     @Override
     public void initializeGame(int numberOfPlayers) {
-        System.out.println("Guess the correct answer to the Math problems \nEach correct answer gives +2 points \nFirst player to reach 10 points win.\n");
+        System.out.println("Guess the correct answer to the Math problems in 5 Seconds!!! \nEach correct answer gives +2 points \nFirst player to reach 10 points win.\n");
         for (int i=0; i<numberOfPlayers; i++){
             numPlayers.add(new Player());
         }
@@ -36,8 +31,8 @@ public class NumberGame extends Game{
     @Override
     public void playSingleTurn(int player) {
         System.out.println("Player turn: " + (player + 1));
+        answer= 101;
         int num1 = random.nextInt(11), num2 = random.nextInt(11), correctAnswer = 0;
-
         switch (random.nextInt(3) + 1){
             case 1:
                 System.out.println( num1 + " + " + num2);
@@ -52,12 +47,22 @@ public class NumberGame extends Game{
                 correctAnswer = num1 * num2;
                 break;
         }
-        int answer = scanner.nextInt();
+
         Player player1 = numPlayers.get(player);
-        if (answer == correctAnswer) {
-            System.out.println("Correct: +2 points\n");
-            player1.score += 2;
-        }else System.out.println("Incorrect!!!");
+        Timer timer = new Timer();
+        timer.start();
+        new Answer(this).start();
+        while(timer.isAlive() && answer == 101) {
+
+        }
+        if (answer != 101){
+            timer.interrupt();
+            if (answer == correctAnswer) {
+                System.out.println("Correct: +2 points\n");
+                player1.score += 2;
+            } else System.out.println("Incorrect!!!");
+        }else System.out.println("Time run out!!");
+
 
 
     }
@@ -70,6 +75,11 @@ public class NumberGame extends Game{
                 System.out.println("Player:" + player.id + " Wins ");
             }
         }
+
+    }
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
     }
 }
 
