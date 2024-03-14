@@ -1,6 +1,6 @@
 // Reference- https://www.geeksforgeeks.org/insertion-sort/
 
-public class InsertionSort implements Sorting{
+public class InsertionSort implements SortingAlgorithms{
 
     @Override
     public void sort(int[] arr)

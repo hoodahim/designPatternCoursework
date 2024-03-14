@@ -1,6 +1,6 @@
 // Reference- https://www.geeksforgeeks.org/heap-sort/
 
-public class HeapSort implements Sorting{
+public class HeapSort implements SortingAlgorithms{
 
     @Override
     public void sort(int[] arr)

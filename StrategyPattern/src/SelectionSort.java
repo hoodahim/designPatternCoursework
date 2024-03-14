@@ -1,6 +1,6 @@
 // Reference- https://www.geeksforgeeks.org/selection-sort/
 
-public class SelectionSort implements Sorting {
+public class SelectionSort implements SortingAlgorithms {
 
     @Override
     public void sort(int[] arr) {
