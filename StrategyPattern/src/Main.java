@@ -24,16 +24,8 @@ public class Main {
             sorting.algorithmSorting(arrayGenerator.getArr30(), new Timer());
             System.out.println("Array size 100k elements:");
             sorting.algorithmSorting(arrayGenerator.getArr100k(), new Timer());
+            System.out.println();
         }
-
-
-
-
-
-
-
-
-
 
     }
 }

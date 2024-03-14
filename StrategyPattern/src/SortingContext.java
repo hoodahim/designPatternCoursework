@@ -27,6 +27,6 @@ public class SortingContext {
         timer.start();
         sort(arr);
         timer.stopRunning();
-        System.out.println( sortingAlgorithms.getName() +  " Time: " + timer.getTime() + " ms\n");
+        System.out.println( sortingAlgorithms.getName() +  " Time: " + timer.getTime() + " ms");
     }
 }
