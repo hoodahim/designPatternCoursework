@@ -7,6 +7,7 @@ public class Main {
         System.out.println("Enter the Array Size for sorting:");
         Scanner scanner = new Scanner(System.in);
         int arraySize = scanner.nextInt();
+        System.out.println("Array with " + arraySize + " elements:");
         while(arraySize!= 0){
             for (int i=1; i<=3; i++){
                 switch (i){
@@ -22,11 +23,10 @@ public class Main {
                     default:
                         break;
                 }
-                System.out.println("Array with " + arraySize + " elements:");
                 sorting.algorithmSorting(new ArrayGenerator(arraySize).getArr(), new Timer());
                 System.out.println();
             }
-            System.out.println("Enter Array Size or 0 to quit: ");
+            System.out.println(">>Enter Array Size or 0 to quit: ");
             arraySize = scanner.nextInt();
         }
 
