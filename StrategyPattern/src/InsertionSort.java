@@ -2,6 +2,7 @@
 
 public class InsertionSort implements SortingAlgorithms{
 
+    String name= "Insertion Sorting";
     @Override
     public void sort(int[] arr)
     {
@@ -19,5 +20,10 @@ public class InsertionSort implements SortingAlgorithms{
             }
             arr[j + 1] = key;
         }
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

@@ -2,6 +2,8 @@
 
 public class HeapSort implements SortingAlgorithms{
 
+    String name = "Heap Sorting";
+
     @Override
     public void sort(int[] arr)
     {
@@ -46,5 +48,10 @@ public class HeapSort implements SortingAlgorithms{
             // Recursively heapify the affected sub-tree
             heapify(arr, N, largest);
         }
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

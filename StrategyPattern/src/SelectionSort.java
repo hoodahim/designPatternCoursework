@@ -2,6 +2,8 @@
 
 public class SelectionSort implements SortingAlgorithms {
 
+    String name = "Selection Sorting";
+
     @Override
     public void sort(int[] arr) {
         int n = arr.length;
@@ -20,5 +22,9 @@ public class SelectionSort implements SortingAlgorithms {
             arr[min_idx] = arr[i];
             arr[i] = temp;
         }
+    }
+
+    public String getName() {
+        return name;
     }
 }
