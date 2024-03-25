@@ -45,8 +45,11 @@ public class Gui extends Application {
         Label label = new Label("Press Ctrl-Z to undo the last change.");
         label.setPadding(insets);
 
+        Label labelRedo = new Label("Press Ctrl-Y to redo the last change.");
+        labelRedo.setPadding(insets);
+
         // create a VBox that contains the HBox and the CheckBox
-        VBox vBox = new VBox(hBox, checkBox, label);
+        VBox vBox = new VBox(hBox, checkBox, label, labelRedo);
         // call controller when the CheckBox is clicked
         checkBox.setOnAction(event -> {
             controller.setIsSelected(checkBox.isSelected());
@@ -59,6 +62,12 @@ public class Gui extends Application {
                 // Ctrl-Z: undo
                 System.out.println("Undo key combination pressed");
                 controller.undo();
+            }
+        });
+
+        scene.setOnKeyPressed(event -> {
+            if (event.isControlDown() && event.getCode() == KeyCode.Y) {
+                System.out.println("Redo Key combination pressed");
             }
         });
 
