@@ -15,6 +15,7 @@ public class Controller {
     }
 
     public void setOption(int optionNumber, int choice) {
+        redo.clear();
         saveToHistory();
         model.setOption(optionNumber, choice);
     }
@@ -24,6 +25,7 @@ public class Controller {
     }
 
     public void setIsSelected(boolean isSelected) {
+        redo.clear();
         saveToHistory();
         model.setIsSelected(isSelected);
     }
@@ -50,7 +52,12 @@ public class Controller {
 
     public void redo(){
         if(!redo.isEmpty()){
-
+            IMemento currentState = model.createMemento(); // undo memento added to history
+            history.add(currentState);
+            System.out.println("Memento found in redo list");
+            IMemento forwardState = redo.remove(redo.size() -1);
+            model.restoreState(forwardState);
+            gui.updateGui();
         }
     }
 }

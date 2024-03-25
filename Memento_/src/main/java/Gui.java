@@ -63,11 +63,9 @@ public class Gui extends Application {
                 System.out.println("Undo key combination pressed");
                 controller.undo();
             }
-        });
-
-        scene.setOnKeyPressed(event -> {
             if (event.isControlDown() && event.getCode() == KeyCode.Y) {
                 System.out.println("Redo Key combination pressed");
+                controller.redo();
             }
         });
 
