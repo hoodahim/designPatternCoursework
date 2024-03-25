@@ -1,12 +1,17 @@
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 import javafx.scene.input.KeyCode;
+
+import java.util.List;
 
 public class Gui extends Application {
 
@@ -48,8 +53,28 @@ public class Gui extends Application {
         Label labelRedo = new Label("Press Ctrl-Y to redo the last change.");
         labelRedo.setPadding(insets);
 
+        Button history = new Button("History");
+        history.setPadding(insets);
+
+        history.setOnAction(event -> {
+            Stage historyStage = new Stage();
+            ListView<IMemento> listView = new ListView<>(controller.getHistory());
+            Scene scene = new Scene(listView, 300, 200);
+            historyStage.setScene(scene);
+            listView.setOnMouseClicked(eventClicked -> {
+                IMemento selectedMemento = listView.getSelectionModel().getSelectedItem();
+                if ( selectedMemento != null){
+                    controller.restoreState(selectedMemento);
+                    updateGui();
+                    historyStage.close();
+                }
+            });
+            historyStage.setTitle("History");
+            historyStage.show();
+        });
+
         // create a VBox that contains the HBox and the CheckBox
-        VBox vBox = new VBox(hBox, checkBox, label, labelRedo);
+        VBox vBox = new VBox(hBox, checkBox, label, labelRedo, history);
         // call controller when the CheckBox is clicked
         checkBox.setOnAction(event -> {
             controller.setIsSelected(checkBox.isSelected());
