@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Memento implements IMemento {
     private int[] options;
@@ -23,5 +24,11 @@ public class Memento implements IMemento {
 
     public LocalDateTime getTimestamp() {
         return timestamp;
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        return timestamp.format(formatter) + " Options: " + options[0] + " " + options[1] + " " + options[2] + " isSelected: " + isSelected;
     }
 }
