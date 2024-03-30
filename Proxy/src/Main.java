@@ -14,17 +14,25 @@ public class Main {
         AccessControlService accessControlService = AccessControlService.instantiate();
         accessControlService.addToList(user1, document2_p);
 
+        System.out.println("\n User with no access \n");
         System.out.println(document1.getContent(user2));
         System.out.println(document2_p.getContent(user2));
 
+        System.out.println("\n User that has access \n");
+
         System.out.println(document1.getContent(user1));
         System.out.println(document2_p.getContent(user1));
+
+        System.out.println("\n document creation time \n");
 
         System.out.println(document1.getTime());
         System.out.println(document2_p.getTime());
 
         User user3 = new User("hasAccess");
 
+        System.out.println("\n User that has same username but no access to the protected document \n");
+
+        System.out.println(document1.getContent(user3));
         System.out.println(document2_p.getContent(user3));
 
 

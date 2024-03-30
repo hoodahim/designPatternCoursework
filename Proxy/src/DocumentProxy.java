@@ -24,7 +24,8 @@ public class DocumentProxy implements IDocument{
     }
     public String getContent(User user) {
         if(accessControlService.authenticate(identifier, user)){
-            return content;
+            document = new Document(content, identifier);
+            return document.getContent(user);
         }
         return failedAuth();
     }
