@@ -15,7 +15,7 @@
         <module>Week4</module>
         <module>Week5</module>
         <module>Memento_</module>
-        <module>Bridge</module>
+        <module>FlyWeight</module>
     </modules>
 
     <properties>
