@@ -16,6 +16,10 @@ public class Recommendation implements Cloneable{
     @Override
     protected Recommendation clone() throws CloneNotSupportedException {
         Recommendation cloned = (Recommendation) super.clone();
+        cloned.bookList = new ArrayList<>();
+        for(Book book:bookList){
+            cloned.addBookToList(book.clone());
+        }
         cloned.id = ++idCounter;
         return cloned;
     }
